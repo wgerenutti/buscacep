@@ -14,5 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('cep/index');
 });
+
+Route::get('/cep', 'App\Http\Controllers\CepController@index');
+Route::post('/cep', 'App\Http\Controllers\CepController@show');
