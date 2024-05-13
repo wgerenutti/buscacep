@@ -57,4 +57,24 @@ class CepController extends Controller
             return redirect('/')->withErrors('Erro ao buscar CEP: ' . $e->getMessage());
         }
     }
+
+    public function destroy($id)
+    {
+        $endereco = Cep::find($id);
+
+        if ($endereco) {
+            $endereco->delete();
+
+            return response()->json([
+                'status' => 'DELETED',
+                'message' => 'Registro deletado com sucesso',
+            ], 200);
+        } else {
+            return response()->json([
+                'status' => 'NOT-FOUND',
+                'message' => 'Registro não encontrado',
+            ], 404);
+        }
+    }
+
 }

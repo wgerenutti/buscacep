@@ -19,3 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/cep/{cep}', 'App\Http\Controllers\Api\CepController@show');
+Route::get('/cep/{cep}', 'App\Http\Controllers\Api\CepController@destroy');
